@@ -51,7 +51,7 @@ describe("Product return", function () {
     productIsOpenedDefaultValue.isSelected();
   });
 
-  it.skip("can be submited", function () {
+  it("can be submited", function () {
     function randomValue(countCharacters, sepecificString = "", onlyNumbers = false) {
       var text = "";
       var possible = "";
