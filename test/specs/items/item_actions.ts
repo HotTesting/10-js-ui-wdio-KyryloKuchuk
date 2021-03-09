@@ -112,7 +112,7 @@ describe('Items', function () {
             }
             
         })
-        it('Product can be selected for comparison by registered user', function () {
+        it('Product can be selected for comparison', function () {
             //TODO: Need to move cycle before 'it', and check by iteration 'it' 
             for (let currentElement = 0; currentElement < arrayDisplayedElements.length; currentElement++) {
                 const productList = $('#product-category');
@@ -130,7 +130,7 @@ describe('Items', function () {
                 expect(successAddedAllert).not.toHaveTextContaining('create an account');
             }
         })
-        it('Product can be added to cart by registered user', function () {
+        it('Product can be added to cart', function () {
             //TODO: Need to move cycle before 'it', and check by iteration 'it' 
             for (let currentElement = 0; currentElement < arrayDisplayedElements.length; currentElement++) {
                 const productList = $('#product-category');
@@ -162,7 +162,7 @@ describe('Items', function () {
             openProductList();
             arrayDisplayedElements = createArrayOfElements();
         });
-        it('Product can be selected for comparison by guest', function () {
+        it('Product can be selected for comparison', function () {
             for (let currentElement = 0; currentElement < arrayDisplayedElements.length; currentElement++) {
                 const productList = $('#product-category');
                 let productWishListButton = productList.$(`#content .row .product-layout:nth-child(${arrayDisplayedElements[currentElement].index}) [data-original-title="Add to Wish List"]`);
@@ -181,7 +181,7 @@ describe('Items', function () {
             }
         })
 
-        it('Product can be added to cart by guest', function () {
+        it('Product can be added to cart', function () {
             for (let currentElement = 0; currentElement < arrayDisplayedElements.length; currentElement++) {
                 const productList = $('#product-category');
                 //TODO: Need to change selector
