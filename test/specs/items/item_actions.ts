@@ -185,10 +185,10 @@ describe('Items', function () {
             for (let currentElement = 0; currentElement < arrayDisplayedElements.length; currentElement++) {
                 const productList = $('#product-category');
                 //TODO: Need to change selector
-                let addToCardButton = productList.$(`#content .row .product-layout:nth-child(${arrayDisplayedElements[currentElement].index}) [onclick^="cart.add"]`);
-                addToCardButton.scrollIntoView(false);
+                let addToCartButton = productList.$(`#content .row .product-layout:nth-child(${arrayDisplayedElements[currentElement].index}) [onclick^="cart.add"]`);
+                addToCartButton.scrollIntoView(false);
                 browser.pause(1000);
-                addToCardButton.click();
+                addToCartButton.click();
 
                 const successAddedAllert = productList.$('#product-category .alert-success');
                 successAddedAllert.isDisplayedInViewport();
