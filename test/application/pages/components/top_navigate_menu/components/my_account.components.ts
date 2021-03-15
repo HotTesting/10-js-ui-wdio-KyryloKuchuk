@@ -1,11 +1,17 @@
+import waitUntil from "../../../../../../node_modules/webdriverio/build/commands/browser/waitUntil"
+
 export class MyAccount {
     myAccountDropDown: any
+ 
     constructor(private root: WebdriverIO.Element) {
         this.myAccountDropDown = this.root.$('.dropdown')
     }
-    openLogin() {
+    openMyAccountDropDown() {
         this.myAccountDropDown.isDisplayed()
         this.myAccountDropDown.click()
+    }
+    openLogin() {
+        this.openMyAccountDropDown()
         const loginButtonFromDropDown = this.myAccountDropDown.$('.dropdown-menu a[href$="login"]')
         loginButtonFromDropDown.isDisplayed()
         loginButtonFromDropDown.click()
@@ -15,8 +21,9 @@ export class MyAccount {
         throw new Error('Method not finished')
     }
     logout() {
+        this.openMyAccountDropDown()
         const logoutButton = this.myAccountDropDown.$('.dropdown-menu a[href$="logout"]')
-        browser.pause(1000)
+        logoutButton.isDisplayed()
         logoutButton.click()
         browser.pause(1000)
         expect(browser).toHaveUrlContaining('/index.php?route=account/logout')

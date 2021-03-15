@@ -5,11 +5,11 @@ export class ProductCardComponent {
         return this.root.$('h4').getText();
     }
 
-    addToCart() {
-        const addToCartButton = this.root.$('button[onclick*="cart.add"] i.fa-shopping-cart')
-        expect(addToCartButton).toBeVisible({ message: 'Expected add to cart button to be visible' })
-        addToCartButton.click()
-        browser.pause(500)
+    addToCart(index) {
+        const addToCardButton = this.root.$(`#content .row .product-layout:nth-child(${index}) [onclick^="cart.add"]`);
+        addToCardButton.scrollIntoView(false);
+        browser.pause(1000);
+        addToCardButton.click();
     }
 
     addToWishList(index) {
@@ -19,7 +19,10 @@ export class ProductCardComponent {
         productWishListButton.click();
     }
 
-    compareThisProduct() {
-        throw new Error('Not yet implemented')
+    compareThisProduct(index) {
+        const comparisonButton = this.root.$(`#content .row .product-layout:nth-child(${index}) [data-original-title="Compare this Product"]`);
+        comparisonButton.scrollIntoView(false);
+        browser.pause(1000);
+        comparisonButton.click();
     }
 }

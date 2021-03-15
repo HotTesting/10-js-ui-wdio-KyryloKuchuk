@@ -78,42 +78,42 @@ describe('Items', function () {
             openProductList();
             arrayDisplayedElements = createArrayOfElements();
         });
-        it(`Product can be added to wishlist`, function () {
-            //TODO: Need to move cycle before 'it', and check by iteration 'it' 
-            for (let currentElement = 0; currentElement < arrayDisplayedElements.length; currentElement++) {
-                const productList = $('#product-category');
-                let productWishListButton = productList.$(`#content .row .product-layout:nth-child(${arrayDisplayedElements[currentElement].index}) [data-original-title="Add to Wish List"]`);
-                productWishListButton.scrollIntoView(false);
-                browser.pause(1000);
-                productWishListButton.click();
+        // it(`Product can be added to wishlist`, function () {
+        //     //TODO: Need to move cycle before 'it', and check by iteration 'it' 
+        //     for (let currentElement = 0; currentElement < arrayDisplayedElements.length; currentElement++) {
+        //         const productList = $('#product-category');
+        //         let productWishListButton = productList.$(`#content .row .product-layout:nth-child(${arrayDisplayedElements[currentElement].index}) [data-original-title="Add to Wish List"]`);
+        //         productWishListButton.scrollIntoView(false);
+        //         browser.pause(1000);
+        //         productWishListButton.click();
 
-                const successAddedAllert = productList.$('#product-category .alert-success');
-                successAddedAllert.isDisplayedInViewport();
-                //TODO: How expect full displayed text which contain link, but displayed text
-                //TODO: How expect multiple containing in string, array isn't work, because issue with the types
-                expect(successAddedAllert).toHaveTextContaining(arrayDisplayedElements[currentElement].text);
-                expect(successAddedAllert).toHaveTextContaining('wish list');
-            }
+        //         const successAddedAllert = productList.$('#product-category .alert-success');
+        //         successAddedAllert.isDisplayedInViewport();
+        //         //TODO: How expect full displayed text which contain link, but displayed text
+        //         //TODO: How expect multiple containing in string, array isn't work, because issue with the types
+        //         expect(successAddedAllert).toHaveTextContaining(arrayDisplayedElements[currentElement].text);
+        //         expect(successAddedAllert).toHaveTextContaining('wish list');
+        //     }
             
-        })
-        it('Product can be selected for comparison', function () {
-            //TODO: Need to move cycle before 'it', and check by iteration 'it' 
-            for (let currentElement = 0; currentElement < arrayDisplayedElements.length; currentElement++) {
-                const productList = $('#product-category');
-                let comparisonButton = productList.$(`#content .row .product-layout:nth-child(${arrayDisplayedElements[currentElement].index}) [data-original-title="Compare this Product"]`);
-                comparisonButton.scrollIntoView(false);
-                browser.pause(1000);
-                comparisonButton.click();
+        // })
+        // it('Product can be selected for comparison', function () {
+        //     //TODO: Need to move cycle before 'it', and check by iteration 'it' 
+        //     for (let currentElement = 0; currentElement < arrayDisplayedElements.length; currentElement++) {
+        //         const productList = $('#product-category');
+        //         let comparisonButton = productList.$(`#content .row .product-layout:nth-child(${arrayDisplayedElements[currentElement].index}) [data-original-title="Compare this Product"]`);
+        //         comparisonButton.scrollIntoView(false);
+        //         browser.pause(1000);
+        //         comparisonButton.click();
 
-                const successAddedAllert = productList.$('#product-category .alert-success');
-                successAddedAllert.isDisplayedInViewport();
-                //TODO:Change expect as 73-74 row,after rewiew
-                expect(successAddedAllert).toHaveTextContaining(arrayDisplayedElements[currentElement].text);
-                expect(successAddedAllert).toHaveTextContaining('product comparison');
-                expect(successAddedAllert).not.toHaveTextContaining('login');
-                expect(successAddedAllert).not.toHaveTextContaining('create an account');
-            }
-        })
+        //         const successAddedAllert = productList.$('#product-category .alert-success');
+        //         successAddedAllert.isDisplayedInViewport();
+        //         //TODO:Change expect as 73-74 row,after rewiew
+        //         expect(successAddedAllert).toHaveTextContaining(arrayDisplayedElements[currentElement].text);
+        //         expect(successAddedAllert).toHaveTextContaining('product comparison');
+        //         expect(successAddedAllert).not.toHaveTextContaining('login');
+        //         expect(successAddedAllert).not.toHaveTextContaining('create an account');
+        //     }
+        // })
         it('Product can be added to cart', function () {
             //TODO: Need to move cycle before 'it', and check by iteration 'it' 
             for (let currentElement = 0; currentElement < arrayDisplayedElements.length; currentElement++) {
