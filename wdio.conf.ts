@@ -19,7 +19,7 @@ export const config = {
     specs: [
         //'./test/specs/**/*.ts'
         //'./test/specs/items/item_actions.ts'
-        './test/specs/account/product_returns.ts'
+        './test/specs/items/item_actions.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -184,8 +184,13 @@ export const config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        beforeEach(function () {
+            console.log('Global Before test called')
+            browser.url('/')
+            browser.pause(2000);
+        }) 
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

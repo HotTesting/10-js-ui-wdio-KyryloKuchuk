@@ -1,23 +1,17 @@
 var Faker = require('Faker');
+import { App } from '../../application/application'
 
 describe("Contact us form", function () {
     it("must send messages to shop administration", function () {
-        browser.url('/index.php?route=information/contact');
-        browser.pause(1000);
-        const infoCotactForm = $('#information-contact');
-
-        const name = infoCotactForm.$('#input-name');
-        name.setValue(Faker.name.firstName());
-
-        const email = infoCotactForm.$('#input-email');
-        email.setValue(Faker.internet.email());
-
-        const enquiry = infoCotactForm.$('#input-enquiry');
-        enquiry.setValue(Faker.random.words());
-
-        const buttonSubmit = infoCotactForm.$('.buttons [value="Submit"]');
-        buttonSubmit.click();
-        browser.pause(1000);
-        expect(browser).toHaveUrlContaining('/index.php?route=information/contact/success');
+        browser.url('/index.php?route=information/contact')
+        expect(browser).toHaveUrlContaining('/index.php?route=information/contact')
+        const app = new App()
+        app.contactUs.fillingLoginFields({
+            name: Faker.name.firstName(),
+            email: Faker.internet.email(),
+            enquiry: Faker.random.words()
+        })
+        app.contactUs.submit()
+        expect(browser).toHaveUrlContaining('/index.php?route=information/contact/success')
     });
 });

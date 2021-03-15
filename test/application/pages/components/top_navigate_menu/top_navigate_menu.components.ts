@@ -1,6 +1,6 @@
 import { MyAccount } from "./components/my_account.components"
 
-export class TopNavigateMenu {
+export class TopNavigateMenuComponent {
     myAccount: MyAccount
 
     constructor() {

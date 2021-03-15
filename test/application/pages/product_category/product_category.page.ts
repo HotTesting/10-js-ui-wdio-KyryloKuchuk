@@ -1,12 +1,12 @@
 
-import { TopNavigateMenu } from "../components/top_navigate_menu/top_navigate_menu.components"
+import { TopNavigateMenuComponent } from "../components/top_navigate_menu/top_navigate_menu.components"
 import { ProductCardComponent } from "./components/product_card.component"
 
 export class ProductCategoryPage {
-    topNavigateMenu: TopNavigateMenu
+    topNavigateMenuComponent: TopNavigateMenuComponent
     productCardComponent: ProductCardComponent
     constructor() {
-        this.topNavigateMenu = new TopNavigateMenu()
+        this.topNavigateMenuComponent = new TopNavigateMenuComponent()
         this.productCardComponent = new ProductCardComponent(this.root)
     }
     private get root(): WebdriverIO.Element {

@@ -3,15 +3,10 @@ import { App } from '../../application/application'
 
 describe('Items', function () {
     var arrayDisplayedElements = []
-    beforeEach(function () {
-        browser.url('/');
-        browser.pause(1000);
-        console.log('Open login page');
-    })
     describe('Action with items by registered user', function () {
         beforeEach(function () {
             const app = new App()
-            app.home.topNavigateMenu.myAccount.openLogin()
+            app.home.topNavigateMenuComponent.myAccount.openLogin()
             browser.pause(1000);
             expect(browser).toHaveUrlContaining('/index.php?route=account/login');
             browser.pause(1000);
@@ -63,7 +58,7 @@ describe('Items', function () {
         })     
         afterEach(function () {
             const app = new App()
-            app.home.topNavigateMenu.myAccount.logout()
+            app.home.topNavigateMenuComponent.myAccount.logout()
         })
     })
     describe('Action with items by guest', function () {
