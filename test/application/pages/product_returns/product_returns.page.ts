@@ -112,6 +112,8 @@ export class ProductReturnsPage {
         const buttonSubmit = this.root.$('.buttons [type=submit]')
         expect(buttonSubmit).toBeClickable({ message: 'Expected Continue button to be visible' })
         buttonSubmit.click()
-        browser.pause(500)
+        expect(browser).toHaveUrlContaining('/index.php?route=account/return/success');
+		const titelProductReturns = $('#content h1');
+		expect(titelProductReturns).toHaveText('Product Returns');
     }
 }

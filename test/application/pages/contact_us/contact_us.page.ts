@@ -1,6 +1,5 @@
 
 export class ContactUsPage {
-    //TODO: Need complete
     isOpened(): boolean {
         throw new Error('Not implemented yet')
     }
@@ -26,6 +25,6 @@ export class ContactUsPage {
         const buttonSubmit = this.root.$('.buttons [value="Submit"]')
         expect(buttonSubmit).toBeClickable({ message: 'Expected Login button to be visible' })
         buttonSubmit.click()
-        browser.pause(500)
+        expect(browser).toHaveUrlContaining('/index.php?route=information/contact/success')
     }
 }

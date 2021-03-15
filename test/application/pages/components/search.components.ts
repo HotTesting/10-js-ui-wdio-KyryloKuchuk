@@ -11,7 +11,6 @@ export class SearchComponent {
     fillingSearch(value: string) {
         expect(this.root).toBeClickable()
         this.root.setValue(value)
-        browser.pause(1000)
     }
     search(value: string) {
         const buttonSearch = $('.input-group-btn .fa-search');

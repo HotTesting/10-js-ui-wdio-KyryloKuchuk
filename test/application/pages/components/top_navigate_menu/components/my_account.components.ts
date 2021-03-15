@@ -6,15 +6,15 @@ export class MyAccount {
         this.myAccountDropDown = this.root.$('.dropdown')
     }
     openMyAccountDropDown() {
-        this.myAccountDropDown.isDisplayed()
+        this.myAccountDropDown.isClickable()
         this.myAccountDropDown.click()
     }
     openLogin() {
         this.openMyAccountDropDown()
         const loginButtonFromDropDown = this.myAccountDropDown.$('.dropdown-menu a[href$="login"]')
-        loginButtonFromDropDown.isDisplayed()
+        loginButtonFromDropDown.isClickable()
         loginButtonFromDropDown.click()
-        browser.pause(1000)
+        expect(browser).toHaveUrlContaining('/index.php?route=account/login');
     }
     openRegistere() {
         throw new Error('Method not finished')
@@ -22,9 +22,8 @@ export class MyAccount {
     logout() {
         this.openMyAccountDropDown()
         const logoutButton = this.myAccountDropDown.$('.dropdown-menu a[href$="logout"]')
-        logoutButton.isDisplayed()
+        logoutButton.isClickable()
         logoutButton.click()
-        browser.pause(1000)
         expect(browser).toHaveUrlContaining('/index.php?route=account/logout')
     }
 }

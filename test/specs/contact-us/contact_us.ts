@@ -12,6 +12,5 @@ describe("Contact us form", function () {
             enquiry: Faker.random.words()
         })
         app.contactUs.submit()
-        expect(browser).toHaveUrlContaining('/index.php?route=information/contact/success')
     });
 });

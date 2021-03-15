@@ -4,7 +4,7 @@ var Faker = require('Faker')
 describe("Gift Certificate", function () {
     it("can be purchased", function () {
         browser.url('/index.php?route=account/voucher')
-        browser.pause(1000)
+        expect(browser).toHaveUrlContaining('/index.php?route=account/voucher')
         const app = new App()
         app.giftSertificatePage.fillingGiftSertificateFields({
             recipientName: Faker.name.firstName(),
@@ -17,6 +17,5 @@ describe("Gift Certificate", function () {
             checkBoxNonRefundableAgree: "agree"
         })
         app.giftSertificatePage.continue()
-        expect(browser).toHaveUrlContaining('/index.php?route=account/voucher/success')
     });
 });   

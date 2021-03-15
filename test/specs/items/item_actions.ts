@@ -7,16 +7,11 @@ describe('Items', function () {
         beforeEach(function () {
             const app = new App()
             app.home.topNavigateMenuComponent.myAccount.openLogin()
-            browser.pause(1000);
-            expect(browser).toHaveUrlContaining('/index.php?route=account/login');
-            browser.pause(1000);
             app.login.fillingLoginFields({
                 emailAddressAsLogin: users.registeredUser1.email,
                 password: users.registeredUser1.password
             })
             app.login.login()
-            browser.pause(2000);
-            expect(browser).toHaveUrlContaining('/index.php?route=account/account');
             app.home.openAllForCategoryMP3()
             arrayDisplayedElements = app.productCategory.getProductsList()
         })
@@ -92,8 +87,5 @@ describe('Items', function () {
                 expect(successAddedAllert).not.toHaveTextContaining('create an account');
             }
         })
-        afterEach(function () {
-           
-        });
     }); 
 })

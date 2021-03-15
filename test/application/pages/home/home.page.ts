@@ -13,11 +13,9 @@ export class HomePage {
         const mp3PlayersDropDown = navBar.$('a[href$="mp3-players"]')
         expect(mp3PlayersDropDown).toBeDisplayed()
         mp3PlayersDropDown.click()
-        browser.pause(1000)
         const showAll = navBar.$('a[href$="mp3-players"].see-all')
         expect(showAll).toBeDisplayed()
         showAll.click()
-        browser.pause(1000)
         console.log('Open page with products')
         expect(browser).toHaveUrlContaining('/mp3-players')
         const lengthListResult = $$('#content .row .product-layout').length

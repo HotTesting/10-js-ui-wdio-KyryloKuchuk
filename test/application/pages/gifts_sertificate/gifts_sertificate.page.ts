@@ -56,6 +56,6 @@ export class GiftSertificatePage {
         const buttonContinue = this.root.$('.buttons .pull-right [value="Continue"]');
         expect(buttonContinue).toBeClickable({ message: 'Expected Continue button to be visible' })
         buttonContinue.click()
-        browser.pause(500)
+        expect(browser).toHaveUrlContaining('/index.php?route=account/voucher/success')
     }
 }

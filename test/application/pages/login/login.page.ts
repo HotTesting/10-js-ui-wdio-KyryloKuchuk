@@ -29,6 +29,6 @@ export class LoginPage {
         const loginButton = this.root.$('.btn[value="Login"]')
         expect(loginButton).toBeClickable({ message: 'Expected Login button to be visible' })
         loginButton.click()
-        browser.pause(500)
+        expect(browser).toHaveUrlContaining('/index.php?route=account/account');
     }
 }
