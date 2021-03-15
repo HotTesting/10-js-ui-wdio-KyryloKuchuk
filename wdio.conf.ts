@@ -1,4 +1,4 @@
-export const config: WebdriverIO.Config = {
+export const config = {
     //
     // ====================
     // Runner Configuration
@@ -17,7 +17,9 @@ export const config: WebdriverIO.Config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/*.ts'
+        //'./test/specs/**/*.ts'
+        './test/specs/items/item_actions.ts'
+        //'./test/specs/items/test.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -217,8 +219,13 @@ export const config: WebdriverIO.Config = {
     /**
      * Function to be executed after a test (in Mocha/Jasmine).
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+    afterTest: function(test, context, { error, result, duration, passed, retries }) {
+        browser.execute(function () {
+            window.localStorage.clear();
+            window.sessionStorage.clear();
+        });
+        browser.deleteCookies();
+    },
 
 
     /**
