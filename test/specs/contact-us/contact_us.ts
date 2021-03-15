@@ -30,6 +30,6 @@
         const buttonSubmit = infoCotactForm.$('.buttons [value="Submit"]');
         buttonSubmit.click();
         browser.pause(1000);
-        expect(browser).toHaveUrl(`${browser.config.baseUrl}/index.php?route=information/contact/success`);
+        expect(browser).toHaveUrlContaining('/index.php?route=information/contact/success');
     });
   });

@@ -44,6 +44,6 @@ describe("Gift Certificate", function () {
         const buttonContinue = giftCertificateForm.$('.buttons .pull-right [value="Continue"]');
         buttonContinue.click()
         browser.pause(1000);
-        expect(browser).toHaveUrl(`${browser.config.baseUrl}/index.php?route=account/voucher/success`);
+        expect(browser).toHaveUrlContaining('/index.php?route=account/voucher/success');
     });
 });   

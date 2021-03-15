@@ -13,7 +13,7 @@ describe('Items', function () {
             const app = new App()
             app.home.topNavigateMenu.myAccount.openLogin()
             browser.pause(1000);
-            expect(browser).toHaveUrl(`${browser.config.baseUrl}/index.php?route=account/login`);
+            expect(browser).toHaveUrlContaining('/index.php?route=account/login');
             browser.pause(1000);
             app.login.fillingLoginFields({
                 emailAddressAsLogin: users.registeredUser1.email,
@@ -21,7 +21,7 @@ describe('Items', function () {
             })
             app.login.login()
             browser.pause(2000);
-            expect(browser).toHaveUrl(`${browser.config.baseUrl}/index.php?route=account/account`);
+            expect(browser).toHaveUrlContaining('/index.php?route=account/account');
             app.home.openAllForCategoryMP3()
             arrayDisplayedElements = app.productCategory.getProductsList()
         })

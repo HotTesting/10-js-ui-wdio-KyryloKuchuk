@@ -16,7 +16,7 @@ export class HomePage {
         showAll.click()
         browser.pause(1000)
         console.log('Open page with products')
-        expect(browser).toHaveUrl(`${browser.config.baseUrl}/mp3-players`)
+        expect(browser).toHaveUrlContaining('/mp3-players')
         const lengthListResult = $$('#content .row .product-layout').length
         console.log(`Count displayed elemets in products list = ${lengthListResult} it's more than 1`)
         expect(lengthListResult > 1).toBeTruthy()

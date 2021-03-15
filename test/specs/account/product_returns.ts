@@ -98,7 +98,7 @@ describe("Product return", function () {
     productCode.setValue(randomValue(23, Date.now().toString()));
     accountReturnForm.$('.buttons [type=submit]').click();
     browser.pause(1000);
-    expect(browser).toHaveUrl(`${browser.config.baseUrl}/index.php?route=account/return/success`);
+    expect(browser).toHaveUrlContaining('/index.php?route=account/return/success');
     const titelProductReturns = $('#content h1');
     expect(titelProductReturns).toHaveText('Product Returns');
   });
