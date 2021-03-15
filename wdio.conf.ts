@@ -18,8 +18,8 @@ export const config = {
     //
     specs: [
         //'./test/specs/**/*.ts'
-        './test/specs/items/item_actions.ts'
-        //'./test/specs/items/test.ts'
+        //'./test/specs/items/item_actions.ts'
+        './test/specs/account/product_returns.ts'
     ],
     // Patterns to exclude.
     exclude: [

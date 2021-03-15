@@ -1,4 +1,3 @@
-import waitUntil from "../../../../../../node_modules/webdriverio/build/commands/browser/waitUntil"
 
 export class MyAccount {
     myAccountDropDown: any

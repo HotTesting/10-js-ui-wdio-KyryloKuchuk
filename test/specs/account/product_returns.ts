@@ -1,3 +1,4 @@
+var Faker = require('Faker');
 
 describe("Product return", function () {
   it("submit empty form", function () {
@@ -52,42 +53,29 @@ describe("Product return", function () {
   });
 
   it("can be submited", function () {
-    function randomValue(countCharacters, sepecificString = "", onlyNumbers = false) {
-      var text = "";
-      var possible = "";
-      if (onlyNumbers) {
-        possible = "0123456789";
-      } else {
-        possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-      }
-      for (var i = 0; i < countCharacters; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-      return text + sepecificString;
-    }
     browser.url('/index.php?route=account/return/add');
     browser.pause(1000);
     const accountReturnForm = $('#account-return');
     const firstName = accountReturnForm.$('#input-firstname');
-    firstName.setValue(randomValue(5, Date.now().toString()));
+    firstName.setValue(Faker.name.firstName());
 
     const lastName = accountReturnForm.$('#input-lastname');
-    lastName.setValue(randomValue(5, Date.now().toString()));
+    lastName.setValue(Faker.name.lastName());
 
     const email = accountReturnForm.$('#input-email');
-    email.setValue(randomValue(5, "@test.com"));
+    email.setValue(Faker.internet.email());
 
     const telephone = accountReturnForm.$('#input-telephone');
-    telephone.setValue(randomValue(5, '', true));
+    telephone.setValue(Faker.phone.phoneNumber());
 
     const orderID = accountReturnForm.$('#input-order-id');
-    orderID.setValue(randomValue(5, Date.now().toString()));
+    orderID.setValue(Faker.random.number());
 
     const product = accountReturnForm.$('#input-product');
-    product.setValue(randomValue(5, Date.now().toString()));
+    product.setValue(Faker.random.number())
 
     const productCode = accountReturnForm.$('#input-model');
-    productCode.setValue(randomValue(5, Date.now().toString()));
+    productCode.setValue(Faker.random.number());
 
     const reasonForReturn = accountReturnForm.$('.radio > label input[value ="3"]');
     reasonForReturn.click();
@@ -95,7 +83,7 @@ describe("Product return", function () {
     const productIsOpened = accountReturnForm.$('.radio-inline [value="1"]');
     productIsOpened.click();
     const comment = accountReturnForm.$('#input-comment');
-    productCode.setValue(randomValue(23, Date.now().toString()));
+    productCode.setValue(Faker.random.number());
     accountReturnForm.$('.buttons [type=submit]').click();
     browser.pause(1000);
     expect(browser).toHaveUrlContaining('/index.php?route=account/return/success');

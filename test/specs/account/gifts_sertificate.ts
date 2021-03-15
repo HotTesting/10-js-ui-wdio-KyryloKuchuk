@@ -1,42 +1,31 @@
-
+//import faker from 'faker'
+var Faker = require('Faker');
 describe("Gift Certificate", function () {
     it("can be purchased", function () {
         browser.url('/index.php?route=account/voucher');
         browser.pause(1000);
         const giftCertificateForm = $('#account-voucher');
-        function randomValue(countCharacters, sepecificString = "", onlyNumbers = false) {
-            var text = "";
-            var possible = "";
-            if (onlyNumbers) {
-                possible = "0123456789";
-            } else {
-                possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-            }
-            for (var i = 0; i < countCharacters; i++)
-                text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-            return text + sepecificString;
-        }
+    
         const recipientName = giftCertificateForm.$('#input-to-name');
-        recipientName.setValue(randomValue(5, Date.now().toString()));
+        recipientName.setValue(Faker.name.firstName());
 
         const recipientEmail = giftCertificateForm.$('#input-to-email');
-        recipientEmail.setValue(randomValue(5, "@test.com"));
+        recipientEmail.setValue(Faker.internet.email());
 
         const fromName = giftCertificateForm.$('#input-from-name');
-        fromName.setValue(randomValue(5, Date.now().toString()));
+        fromName.setValue(Faker.name.firstName());
 
         const fromEmail = giftCertificateForm.$('#input-from-email');
-        fromEmail.setValue(randomValue(5, "@test.com"));
+        fromEmail.setValue(Faker.internet.email());
 
         const giftCertificateTheme = giftCertificateForm.$('.radio > label [value="7"]');
         giftCertificateTheme.click();
 
         const giftCertificateMessage = giftCertificateForm.$('#input-message');
-        giftCertificateMessage.setValue(randomValue(5, Date.now().toString()));
+        giftCertificateMessage.setValue(Faker.random.words());
 
         const giftCertificateAmount = giftCertificateForm.$('#input-amount');
-        giftCertificateAmount.setValue(randomValue(3,'',true));
+        giftCertificateAmount.setValue(Faker.finance.amount(1,1000));
 
         const checkBoxNonRefundableAgree = giftCertificateForm.$('.buttons .pull-right [name="agree"]');
         checkBoxNonRefundableAgree.click();
