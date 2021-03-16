@@ -13,6 +13,6 @@ export class TopNavigateMenuComponent {
     
     openCheckout() {
         this.root.$('a[title="Checkout"]').click()
-        browser.pause(1000)
+        expect(browser).toHaveUrlContaining('/index.php?route=checkout/checkout')
     }
 }

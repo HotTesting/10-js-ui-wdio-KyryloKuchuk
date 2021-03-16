@@ -17,9 +17,9 @@ export const config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        //'./test/specs/**/*.ts'
+        './test/specs/**/*.ts'
         //'./test/specs/items/item_actions.ts'
-        './test/specs/items/item_actions.ts'
+        //'./test/specs/items/checkout.spec.ts'
     ],
     // Patterns to exclude.
     exclude: [

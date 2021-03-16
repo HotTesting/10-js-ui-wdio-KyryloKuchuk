@@ -27,5 +27,8 @@ describe("Product return", function () {
 			comment: Faker.random.number()
 		})
 		app.productReturnsPage.submit()
+		expect(browser).toHaveUrlContaining('/index.php?route=account/return/success');
+		const titelProductReturns = $('#content h1');
+		expect(titelProductReturns).toHaveText('Product Returns');
 	});
 });

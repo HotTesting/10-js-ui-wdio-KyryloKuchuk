@@ -1,3 +1,5 @@
+import { ConfirmationPage } from "./pages/checkout/confirmation.page";
+import { CheckoutPage } from "./pages/checkout/index";
 import { ContactUsPage } from "./pages/contact_us/contact_us.page";
 import { GiftSertificatePage } from "./pages/gifts_sertificate/gifts_sertificate.page";
 import { HomePage } from "./pages/home/home.page";
@@ -12,6 +14,8 @@ export class App {
     contactUs: ContactUsPage
     giftSertificatePage: GiftSertificatePage
     productReturnsPage: ProductReturnsPage
+    checkout: CheckoutPage
+    confirmation: ConfirmationPage
     constructor() {
         this.home = new HomePage()
         this.login = new LoginPage()
@@ -19,5 +23,7 @@ export class App {
         this.contactUs = new ContactUsPage()
         this.giftSertificatePage = new GiftSertificatePage()
         this.productReturnsPage = new ProductReturnsPage()
+        this.checkout = new CheckoutPage()
+        this.confirmation = new ConfirmationPage()
     }
 }

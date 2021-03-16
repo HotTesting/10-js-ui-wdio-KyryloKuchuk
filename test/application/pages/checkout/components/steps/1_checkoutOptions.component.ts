@@ -9,6 +9,11 @@ export class CheckoutOptionsComponent {
         expect(guestCheckoutRadio).toBeClickable({ message: 'Expected Guest Checkout radio button to be visible. Make sure you are not logged in' })
         guestCheckoutRadio.click()
     }
+    selectRegisterCheckout() {
+        const registerCheckoutRadio = this.root.$('input[type="radio"][value="register"]')
+        expect(registerCheckoutRadio).toBeClickable({ message: 'Expected Register Checkout radio button to be visible. Make sure you are not logged in' })
+        registerCheckoutRadio.click()
+    }
 
     continue() {
         browser.pause(500)
