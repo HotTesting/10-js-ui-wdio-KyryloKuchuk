@@ -1,17 +1,35 @@
 import { App } from "../../application/application"
 import users from '../../fixtures/static/users'
-
+import { ApiClient } from '../../application/api/apiClient'
 var Faker = require('Faker');
+
 describe('Checkout item', function () {
     describe('Checkout by register user', function () {
         beforeEach(function () {
             const app = new App()
-            app.home.topNavigateMenuComponent.myAccount.openLogin()
-            app.login.fillingLoginFields({
-                emailAddressAsLogin: users.registeredUser1.email,
-                password: users.registeredUser1.password
-            })
-            app.login.login()
+            let userData = {
+                firstName: Faker.name.firstName(),
+                lastName: Faker.name.lastName(),
+                email: Faker.internet.email(),
+                telephone: Faker.random.number({
+                    'min': 123456789,
+                    'max': 999999999
+                }),
+                password: Faker.random.number({
+                    'min': 123456,
+                    'max': 999999
+                }),
+                newsLetter: 0,
+                agree: 1
+            }
+            const user = new ApiClient().createNewUser(userData)
+            browser.url('/')
+            // app.home.topNavigateMenuComponent.myAccount.openLogin()
+            // app.login.fillingLoginFields({
+            //     emailAddressAsLogin: users.registeredUser1.email,
+            //     password: users.registeredUser1.password
+            // })
+            // app.login.login()
         })
         it('can be purchased with different delivery and shipment address', function () {
             const app = new App()
@@ -27,6 +45,7 @@ describe('Checkout item', function () {
             app.checkout.billingDetails.fillBillingDetails({
                 newAddress: true,
                 registerUser: true,
+                firstCheckOut: true,
                 firstName: Faker.name.firstName(),
                 lastName: Faker.name.lastName(),
                 email: null,
@@ -39,7 +58,7 @@ describe('Checkout item', function () {
                 sameShippingAddress: false
             })
             app.checkout.billingDetails.continue('registre')
-
+            browser.pause(1000)
             app.checkout.deliveryDetails.fillDeliveryDetails({
                 newAddress: true,
                 registerUser: true,
@@ -88,6 +107,7 @@ describe('Checkout item', function () {
             app.checkout.billingDetails.fillBillingDetails({
                 newAddress: true,
                 registerUser: false,
+                firstCheckOut: true,
                 firstName: Faker.name.firstName(),
                 lastName: Faker.name.lastName(),
                 email: Faker.internet.email(),

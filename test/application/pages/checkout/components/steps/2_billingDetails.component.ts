@@ -7,6 +7,7 @@ export class BillingDetailsComponent {
     fillBillingDetails(data: {
         newAddress: boolean,
         registerUser: boolean,
+        firstCheckOut:boolean,
         firstName: string,
         lastName: string,
         email: string | null,
@@ -20,7 +21,7 @@ export class BillingDetailsComponent {
     }) {
         console.log('[BillingDetailsComponent] Filling biling details step', JSON.stringify(data, null, 2))
         if (data.newAddress) {
-            if (data.registerUser){
+            if (data.registerUser && !data.firstCheckOut){
                 const newAddressCheckBox = this.root.$('[name="payment_address"][value="new"]')
                 newAddressCheckBox.click()
             }
