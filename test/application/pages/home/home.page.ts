@@ -1,12 +1,15 @@
+import { CartComponent } from "../components/cart.component"
 import { SearchComponent } from "../components/search.components"
 import { TopNavigateMenuComponent } from "../components/top_navigate_menu/top_navigate_menu.components"
 
 export class HomePage {
     topNavigateMenuComponent: TopNavigateMenuComponent
     searchComponent: SearchComponent
+    cartComponent: CartComponent
     constructor() {
         this.topNavigateMenuComponent = new TopNavigateMenuComponent()
         this.searchComponent = new SearchComponent()
+        this.cartComponent = new CartComponent()
     }
     openAllForCategoryMP3() {
         const navBar = $('.collapse .nav')

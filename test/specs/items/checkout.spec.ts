@@ -1,5 +1,5 @@
 import { App } from "../../application/application"
-import users from '../../fixtures/static/users'
+// import users from '../../fixtures/static/users'
 import { ApiClient } from '../../application/api/apiClient'
 var Faker = require('Faker');
 
@@ -24,12 +24,6 @@ describe('Checkout item', function () {
             }
             const user = new ApiClient().createNewUser(userData)
             browser.url('/')
-            // app.home.topNavigateMenuComponent.myAccount.openLogin()
-            // app.login.fillingLoginFields({
-            //     emailAddressAsLogin: users.registeredUser1.email,
-            //     password: users.registeredUser1.password
-            // })
-            // app.login.login()
         })
         it('can be purchased with different delivery and shipment address', function () {
             const app = new App()

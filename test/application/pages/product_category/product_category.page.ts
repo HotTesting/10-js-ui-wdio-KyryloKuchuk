@@ -18,12 +18,13 @@ export class ProductCategoryPage {
         let elementsArray = []
         const lengthListResult = $$('#content .row .product-layout').length
         for (var currentElement = 1; currentElement < lengthListResult+1; currentElement++) {
-            let element = productList.$(`#content .row .product-layout:nth-child(${currentElement}) .caption a[href^="http"]`)
+            let element = productList.$(`#content .row .product-layout:nth-child(${currentElement})`)
             if (element) {
                 elementsArray.push({
                     index:currentElement,
-                    link:element.getAttribute('href'),
-                    text:element.getText(),
+                    link:element.$(' .caption a[href^="http"]').getAttribute('href'),
+                    text:element.$(' .caption a[href^="http"]').getText(),
+                    price:element.$(' .price').getText().replace('\nEx Tax: $100.00',''),
                 })
             }
 

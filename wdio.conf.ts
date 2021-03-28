@@ -19,7 +19,7 @@ export const config = {
     specs: [
         //'./test/specs/**/*.ts'
         //'./test/specs/items/item_actions.ts'
-        './test/specs/items/checkout.spec.ts'
+        './test/specs/items/item_actions.spec.ts'
     ],
     // Patterns to exclude.
     exclude: [

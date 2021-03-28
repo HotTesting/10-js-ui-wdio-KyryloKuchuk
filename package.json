@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Test project wIO",
   "scripts": {
-    "test": "wdio wdio.conf.ts"
+    "test": "wdio wdio.conf.ts",
+    "repl": "wdio repl chrome"
   },
   "repository": {
     "type": "git",

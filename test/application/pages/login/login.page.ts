@@ -1,15 +1,5 @@
 
 export class LoginPage {
-    //HOW: doesn't work
-    // isOpened(): boolean {
-    //     const expectedPage = expect(browser).toHaveUrlContaining(`/index.php?route=account/login`);
-    //     if (expectedPage) {
-    //         return true
-    //     } else {
-    //         return false
-    //         console.log('Incorrect url')
-    //     }
-    // }
     private get root(): WebdriverIO.Element {
         return $('#content')
     }

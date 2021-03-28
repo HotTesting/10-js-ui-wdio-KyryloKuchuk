@@ -8,7 +8,6 @@ export class ProductCardComponent {
     addToCart(index) {
         const addToCardButton = this.root.$(`#content .row .product-layout:nth-child(${index}) [onclick^="cart.add"]`);
         addToCardButton.scrollIntoView(false);
-        //HOW: Can't replace pause to toBeDisplayed() or isClickable() becouse there is croll , if I change it  the tests falile
         browser.pause(1000);
         addToCardButton.click();
     }
@@ -16,7 +15,6 @@ export class ProductCardComponent {
     addToWishList(index) {
         const productWishListButton = this.root.$(`#content .row .product-layout:nth-child(${index}) [data-original-title="Add to Wish List"]`)
         productWishListButton.scrollIntoView(false);
-        //HOW: Can't replace pause to toBeDisplayed() or isClickable() becouse there is croll , if I change it  the tests falile
         browser.pause(1000);
         productWishListButton.click();
     }
@@ -24,7 +22,6 @@ export class ProductCardComponent {
     compareThisProduct(index) {
         const comparisonButton = this.root.$(`#content .row .product-layout:nth-child(${index}) [data-original-title="Compare this Product"]`);
         comparisonButton.scrollIntoView(false);
-        //HOW: Can't replace pause to toBeDisplayed() or isClickable() becouse there is croll , if I change it  the tests falile
         browser.pause(1000);
         comparisonButton.click();
     }
