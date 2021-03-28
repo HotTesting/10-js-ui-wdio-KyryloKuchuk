@@ -49,7 +49,6 @@ export class DeliveryDetailsComponent {
 
             const country = this.root.$('#input-shipping-country')
             country.scrollIntoView(false)
-            //TODO: Need change when drop downs will fixed, hardcode because dropdowns brokens
             country.selectByAttribute('value', data.country)
             browser.pause(1000)
             const region = this.root.$('#input-shipping-zone')

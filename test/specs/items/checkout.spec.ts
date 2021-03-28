@@ -1,5 +1,4 @@
 import { App } from "../../application/application"
-// import users from '../../fixtures/static/users'
 import { ApiClient } from '../../application/api/apiClient'
 var Faker = require('Faker');
 
@@ -79,7 +78,7 @@ describe('Checkout item', function () {
         })
         afterEach(function () {
             const app = new App()
-            app.home.topNavigateMenuComponent.myAccount.logout()
+            app.home.topNavigateMenuComponent.myAccountComponent.logout()
         })
     })
     describe('Checkout by guest user', function () {

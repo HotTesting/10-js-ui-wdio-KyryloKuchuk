@@ -1,5 +1,5 @@
 
-export class MyAccount {
+export class MyAccountComponent {
     myAccountDropDown: any
  
     constructor(private root: WebdriverIO.Element) {

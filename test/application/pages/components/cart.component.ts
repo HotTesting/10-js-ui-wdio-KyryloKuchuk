@@ -10,7 +10,9 @@ export class CartComponent {
     }
 
     displayedValueOnButton() {
-        expect(this.root).toBeClickable()
+        this.root.scrollIntoView(false)
+        expect(this.root).toBeDisplayed()
+        browser.pause(2000)
         return this.root.getText()
     }
     openDropDown() {

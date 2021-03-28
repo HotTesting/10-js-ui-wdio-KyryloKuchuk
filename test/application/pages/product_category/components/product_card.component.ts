@@ -6,21 +6,21 @@ export class ProductCardComponent {
     }
 
     addToCart(index) {
-        const addToCardButton = this.root.$(`#content .row .product-layout:nth-child(${index}) [onclick^="cart.add"]`);
+        const addToCardButton = $(`#content .row .product-layout:nth-child(${index}) [onclick^="cart.add"]`);
         addToCardButton.scrollIntoView(false);
         browser.pause(1000);
         addToCardButton.click();
     }
 
     addToWishList(index) {
-        const productWishListButton = this.root.$(`#content .row .product-layout:nth-child(${index}) [data-original-title="Add to Wish List"]`)
+        const productWishListButton = $(`#content .row .product-layout:nth-child(${index}) [data-original-title="Add to Wish List"]`)
         productWishListButton.scrollIntoView(false);
         browser.pause(1000);
         productWishListButton.click();
     }
 
     compareThisProduct(index) {
-        const comparisonButton = this.root.$(`#content .row .product-layout:nth-child(${index}) [data-original-title="Compare this Product"]`);
+        const comparisonButton = $(`#content .row .product-layout:nth-child(${index}) [data-original-title="Compare this Product"]`);
         comparisonButton.scrollIntoView(false);
         browser.pause(1000);
         comparisonButton.click();

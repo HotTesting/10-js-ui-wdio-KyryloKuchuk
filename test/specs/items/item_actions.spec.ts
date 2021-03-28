@@ -1,4 +1,3 @@
-// import users from '../../fixtures/static/users'
 import { App } from '../../application/application'
 import { ApiClient } from '../../application/api/apiClient'
 var Faker = require('Faker');
@@ -77,7 +76,7 @@ describe('Items', function () {
         })     
         afterEach(function () {
             const app = new App()
-            app.home.topNavigateMenuComponent.myAccount.logout()
+            app.home.topNavigateMenuComponent.myAccountComponent.logout()
         })
     })
     describe('Action with items by guest', function () {

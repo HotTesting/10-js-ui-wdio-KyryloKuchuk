@@ -1,10 +1,10 @@
-import { MyAccount } from "./components/my_account.components"
+import { MyAccountComponent } from "./components/my_account.components"
 
 export class TopNavigateMenuComponent {
-    myAccount: MyAccount
+    myAccountComponent: MyAccountComponent
 
     constructor() {
-        this.myAccount = new MyAccount(this.root)
+        this.myAccountComponent = new MyAccountComponent(this.root)
     }
 
     private get root(): WebdriverIO.Element {

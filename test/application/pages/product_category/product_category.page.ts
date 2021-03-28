@@ -14,11 +14,10 @@ export class ProductCategoryPage {
     }
 
     getProductsList() {
-        const productList = $('#product-category')
         let elementsArray = []
         const lengthListResult = $$('#content .row .product-layout').length
         for (var currentElement = 1; currentElement < lengthListResult+1; currentElement++) {
-            let element = productList.$(`#content .row .product-layout:nth-child(${currentElement})`)
+            let element = $(`#content .row .product-layout:nth-child(${currentElement})`)
             if (element) {
                 elementsArray.push({
                     index:currentElement,
